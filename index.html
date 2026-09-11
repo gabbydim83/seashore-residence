@@ -1414,6 +1414,62 @@
 }
 
 
+
+/* =========================
+   LEGAL FOOTER
+========================== */
+.ama-chip {
+  background: #e8f2f4 !important;
+  color: #123d4d !important;
+  font-weight: 800 !important;
+}
+.legal-footer {
+  background: #0c2933;
+  color: white;
+  padding: 28px 5%;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+.legal-footer-inner {
+  width: min(1240px, 100%);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+.legal-footer-brand strong {
+  display: block;
+  margin-bottom: 5px;
+  font-size: .92rem;
+}
+.legal-footer-brand small {
+  color: rgba(255,255,255,.58);
+  font-size: .7rem;
+  line-height: 1.5;
+}
+.legal-footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 17px;
+}
+.legal-footer-links a {
+  color: rgba(255,255,255,.78);
+  text-decoration: none;
+  font-size: .72rem;
+  font-weight: 700;
+}
+.legal-footer-links a:hover {
+  color: white;
+  text-decoration: underline;
+}
+@media (max-width: 760px) {
+  .legal-footer { padding: 24px 18px; }
+  .legal-footer-inner { display: block; text-align: center; }
+  .legal-footer-links { margin-top: 16px; justify-content: center; }
+  .legal-footer-links a { font-size: .68rem; }
+}
+
 </style>
 </head>
 
@@ -1541,6 +1597,7 @@
           <span>40 m²</span>
           <span data-i18n="beachfront">Beachfront</span>
           <span data-i18n="seaView">Sea View</span>
+          <span class="ama-chip">AMA 00003314315</span>
         </div>
 
         <p data-i18n="aText">
@@ -1591,6 +1648,7 @@
           <span>80 m²</span>
           <span data-i18n="beachfront">Beachfront</span>
           <span data-i18n="seaView">Sea View</span>
+          <span class="ama-chip">AMA 00003314400</span>
         </div>
 
         <p data-i18n="bText">
@@ -1936,6 +1994,21 @@
 </section>
 
 </main>
+
+
+<footer class="legal-footer">
+  <div class="legal-footer-inner">
+    <div class="legal-footer-brand">
+      <strong>SeaShore Residence · Perea, Greece</strong>
+      <small>SeaShore A · AMA 00003314315 &nbsp;|&nbsp; SeaShore B · AMA 00003314400</small>
+    </div>
+    <nav class="legal-footer-links" aria-label="Legal">
+      <a href="legal.html#privacy">Privacy &amp; Data</a>
+      <a href="legal.html#booking">Booking Terms</a>
+      <a href="legal.html#storage">Cookie &amp; Storage</a>
+    </nav>
+  </div>
+</footer>
 
 
 <script>

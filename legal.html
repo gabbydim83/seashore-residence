@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Legal Information | SeaShore Residence</title>
+  <meta name="robots" content="index,follow">
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f8f8;
+      color: #203039;
+      line-height: 1.7;
+    }
+    a { color: inherit; }
+
+    .legal-header {
+      background: linear-gradient(135deg, #0c2933, #145365);
+      color: white;
+      padding: 34px 5% 46px;
+    }
+
+    .legal-header-inner {
+      width: min(980px, 100%);
+      margin: 0 auto;
+    }
+
+    .back-link {
+      display: inline-flex;
+      margin-bottom: 34px;
+      padding: 9px 13px;
+      border: 1px solid rgba(255,255,255,.35);
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: .78rem;
+      font-weight: 800;
+      background: rgba(255,255,255,.08);
+    }
+
+    .legal-header span {
+      display: block;
+      margin-bottom: 8px;
+      color: #7fdcec;
+      font-size: .72rem;
+      font-weight: 900;
+      letter-spacing: 1.8px;
+    }
+
+    .legal-header h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.6rem, 6vw, 4.6rem);
+      font-weight: normal;
+      line-height: 1;
+      margin-bottom: 15px;
+    }
+
+    .legal-header p {
+      max-width: 720px;
+      color: rgba(255,255,255,.75);
+      font-size: .92rem;
+    }
+
+    .legal-nav {
+      width: min(980px, 90%);
+      margin: -22px auto 42px;
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      overflow: hidden;
+      background: white;
+      border: 1px solid #dfe8eb;
+      border-radius: 16px;
+      box-shadow: 0 12px 34px rgba(12,41,51,.1);
+    }
+
+    .legal-nav a {
+      padding: 16px 12px;
+      text-align: center;
+      text-decoration: none;
+      font-size: .76rem;
+      font-weight: 800;
+      color: #264a56;
+      border-right: 1px solid #e5ecee;
+    }
+
+    .legal-nav a:last-child { border-right: 0; }
+
+    .legal-wrap {
+      width: min(980px, 90%);
+      margin: 0 auto 70px;
+    }
+
+    .notice {
+      margin-bottom: 26px;
+      padding: 18px 20px;
+      border-left: 4px solid #16829c;
+      background: #eaf5f7;
+      border-radius: 0 12px 12px 0;
+      color: #46606a;
+      font-size: .82rem;
+    }
+
+    .legal-section {
+      scroll-margin-top: 20px;
+      margin-bottom: 34px;
+      padding: 32px;
+      background: white;
+      border: 1px solid #e0e8eb;
+      border-radius: 20px;
+      box-shadow: 0 10px 32px rgba(18,61,77,.06);
+    }
+
+    .legal-section h2 {
+      margin-bottom: 16px;
+      font-family: Georgia, "Times New Roman", serif;
+      color: #123d4d;
+      font-size: 2rem;
+      font-weight: normal;
+    }
+
+    .legal-section h3 {
+      margin: 23px 0 7px;
+      color: #244b59;
+      font-size: 1rem;
+    }
+
+    .legal-section p,
+    .legal-section li {
+      color: #5e6e75;
+      font-size: .88rem;
+    }
+
+    .legal-section p + p { margin-top: 10px; }
+
+    .legal-section ul {
+      margin: 9px 0 0 20px;
+    }
+
+    .legal-section li + li { margin-top: 6px; }
+
+    .identity-box {
+      margin-top: 18px;
+      padding: 18px;
+      background: #f4f8f9;
+      border-radius: 14px;
+      font-size: .84rem;
+      color: #50646d;
+    }
+
+    .identity-box strong { color: #123d4d; }
+
+    .ama-row {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .ama-row span {
+      padding: 8px 11px;
+      border-radius: 999px;
+      background: #e9f3f5;
+      color: #31515d;
+      font-size: .72rem;
+      font-weight: 800;
+    }
+
+    .legal-footer {
+      padding: 28px 5%;
+      text-align: center;
+      background: #0c2933;
+      color: rgba(255,255,255,.68);
+      font-size: .72rem;
+    }
+
+    .legal-footer a { color: white; }
+
+    @media (max-width: 650px) {
+      .legal-header { padding: 26px 18px 42px; }
+      .legal-nav {
+        width: calc(100% - 28px);
+        grid-template-columns: 1fr;
+      }
+      .legal-nav a {
+        border-right: 0;
+        border-bottom: 1px solid #e5ecee;
+      }
+      .legal-nav a:last-child { border-bottom: 0; }
+      .legal-wrap { width: calc(100% - 28px); }
+      .legal-section {
+        padding: 23px 19px;
+        border-radius: 16px;
+      }
+      .legal-section h2 { font-size: 1.7rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="legal-header">
+  <div class="legal-header-inner">
+    <a class="back-link" href="index.html">← SeaShore Residence</a>
+    <span>LEGAL &amp; PRIVACY</span>
+    <h1>Legal information</h1>
+    <p>
+      Privacy, booking and browser-storage information for
+      seashoreresidence.com and direct booking requests for SeaShore A and SeaShore B.
+    </p>
+  </div>
+</header>
+
+<nav class="legal-nav" aria-label="Legal sections">
+  <a href="#privacy">Privacy &amp; Data</a>
+  <a href="#booking">Booking Terms</a>
+  <a href="#storage">Cookie &amp; Storage</a>
+</nav>
+
+<main class="legal-wrap">
+
+  <div class="notice">
+    Last updated: 11 September 2026. This page describes the website as it currently operates:
+    direct booking requests are sent through WhatsApp, no online payment is processed on this website,
+    and no advertising or analytics tracker is intentionally installed.
+  </div>
+
+  <section class="legal-section" id="privacy">
+    <h2>Privacy &amp; Data</h2>
+
+    <p>
+      SeaShore Residence uses personal information only to operate the accommodation website,
+      respond to enquiries and handle direct booking requests.
+    </p>
+
+    <h3>Information you may provide</h3>
+    <ul>
+      <li>requested check-in and check-out dates;</li>
+      <li>number of guests;</li>
+      <li>an optional message included in your WhatsApp request;</li>
+      <li>any additional information you voluntarily send to the host through WhatsApp.</li>
+    </ul>
+
+    <h3>How booking requests work</h3>
+    <p>
+      The website does not maintain an online guest account or reservation database.
+      When you press the WhatsApp booking button, the selected dates, guest count and optional message
+      are prepared in your browser and passed to WhatsApp so that you can send the request to the host.
+      Your use of WhatsApp is also subject to WhatsApp/Meta's own privacy terms.
+    </p>
+
+    <h3>Purposes</h3>
+    <p>
+      Information sent in a booking enquiry is used to answer your request, check availability,
+      discuss a possible reservation and, where a reservation is agreed, take steps necessary to provide
+      the accommodation service and comply with applicable legal obligations.
+    </p>
+
+    <h3>Third-party services used by the website</h3>
+    <ul>
+      <li>GitHub Pages hosts the website and may process normal technical request/server information.</li>
+      <li>Halkidiki Explorer data is loaded from public GitHub-hosted data files to show destination information.</li>
+      <li>Open-Meteo is contacted to display current weather information for Perea Beach.</li>
+      <li>Google Maps and Halkidiki Explorer open only when you choose the relevant external link.</li>
+      <li>WhatsApp is used when you choose to send a direct booking request.</li>
+    </ul>
+
+    <h3>Retention</h3>
+    <p>
+      The website itself does not store booking-form submissions. Messages sent through WhatsApp may be retained
+      by the accommodation operator for as long as reasonably necessary to respond to the enquiry, administer an
+      agreed reservation, meet accounting/tax/legal requirements, or resolve a dispute.
+    </p>
+
+    <h3>Your rights</h3>
+    <p>
+      Subject to applicable law, you may request access, correction or deletion of personal data,
+      restriction or objection to certain processing, and where applicable data portability.
+      You may also complain to the competent data-protection authority.
+    </p>
+
+    <div class="identity-box">
+      <strong>Accommodation / privacy contact</strong><br>
+      SeaShore Residence<br>
+      Κουντουριώτου 61 &amp; 25ης Μαρτίου 1, Peraia, 570 19, Greece<br>
+      WhatsApp: +30 697 464 1433
+    </div>
+
+    <div class="ama-row">
+      <span>SeaShore A · AMA 00003314315</span>
+      <span>SeaShore B · AMA 00003314400</span>
+    </div>
+  </section>
+
+  <section class="legal-section" id="booking">
+    <h2>Booking Terms</h2>
+
+    <h3>Booking request, not automatic confirmation</h3>
+    <p>
+      Sending a request through this website or WhatsApp does not create a confirmed reservation.
+      A reservation becomes confirmed only when the host explicitly confirms the requested stay and communicates
+      the applicable booking conditions to the guest.
+    </p>
+
+    <h3>Availability</h3>
+    <p>
+      Dates selected on this website are enquiry dates. The website does not currently provide a live availability
+      calendar. Availability is confirmed personally by the host.
+    </p>
+
+    <h3>Price, payment and cancellation</h3>
+    <p>
+      Any price, deposit, payment schedule and cancellation conditions that apply to a requested stay
+      will be communicated before the reservation is confirmed. If specific conditions are agreed in writing
+      with the guest, those agreed conditions form part of the reservation.
+    </p>
+
+    <h3>Maximum occupancy</h3>
+    <ul>
+      <li>SeaShore A: maximum 4 guests.</li>
+      <li>SeaShore B: maximum 6 guests.</li>
+    </ul>
+
+    <h3>Guest responsibility</h3>
+    <p>
+      Guests should provide accurate dates, guest numbers and other material information.
+      A guest should not treat a request as accepted until confirmation has been received from the host.
+    </p>
+
+    <h3>Destination and live-information disclaimer</h3>
+    <p>
+      Weather, beach information, distances, restaurants, activities and other Halkidiki Explorer destination
+      content are provided for travel-planning convenience. Live or third-party information may change and
+      should not be treated as a contractual promise about the accommodation.
+    </p>
+
+    <h3>Applicable law</h3>
+    <p>
+      Accommodation services are provided in Greece. Mandatory consumer rights and other rules that cannot
+      legally be excluded remain unaffected.
+    </p>
+
+    <div class="ama-row">
+      <span>SeaShore A · AMA 00003314315</span>
+      <span>SeaShore B · AMA 00003314400</span>
+    </div>
+  </section>
+
+  <section class="legal-section" id="storage">
+    <h2>Cookie &amp; Storage</h2>
+
+    <p>
+      The current version of seashoreresidence.com does not intentionally use advertising cookies,
+      behavioural advertising pixels or web-analytics trackers.
+    </p>
+
+    <h3>Language preference</h3>
+    <p>
+      The website uses browser local storage to remember the language you selected.
+      The stored key is <strong>seashoreLanguage</strong>. This preference is used only to present the website
+      in your chosen language and can be removed by clearing site data in your browser.
+    </p>
+
+    <h3>External requests</h3>
+    <p>
+      The website requests public destination data from GitHub-hosted Halkidiki Explorer files and weather data
+      from Open-Meteo. Standard internet connection information, such as an IP address and technical request data,
+      may therefore be processed by those service providers when your browser makes those requests.
+    </p>
+
+    <h3>External links</h3>
+    <p>
+      If you choose to open WhatsApp, Google Maps or Halkidiki Explorer, you leave or interact with services
+      outside this website. Those services operate under their own privacy and storage policies.
+    </p>
+
+    <h3>Consent banner</h3>
+    <p>
+      Because the current website does not intentionally install non-essential analytics or advertising trackers,
+      it does not currently display a marketing-cookie consent banner. If such technologies are added in the future,
+      this policy and the website's consent mechanism should be reviewed before they are activated.
+    </p>
+  </section>
+
+</main>
+
+<footer class="legal-footer">
+  SeaShore Residence · Perea, Greece ·
+  <a href="index.html">Return to website</a>
+</footer>
+
+</body>
+</html>
