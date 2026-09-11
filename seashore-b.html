@@ -1,0 +1,3001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>SeaShore B | SeaShore Residence</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f7f8f7;
+      color: #17262d;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    a {
+      color: inherit;
+    }
+
+
+    /* =========================
+       TOP BAR
+    ========================= */
+
+    .topbar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 30;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      padding: 22px 5%;
+    }
+
+    .top-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .home-link {
+      text-decoration: none;
+      color: white;
+
+      padding: 10px 14px;
+
+      border: 1px solid rgba(255,255,255,.5);
+      border-radius: 999px;
+
+      background: rgba(0,0,0,.25);
+      backdrop-filter: blur(10px);
+
+      font-size: .88rem;
+      font-weight: 700;
+    }
+
+    .brand {
+      color: white;
+      font-size: 1.12rem;
+      font-weight: 700;
+      text-shadow: 0 2px 10px rgba(0,0,0,.4);
+    }
+
+    .language-select {
+      color: white;
+
+      border: 1px solid rgba(255,255,255,.6);
+      background: rgba(0,0,0,.3);
+
+      padding: 10px 13px;
+      border-radius: 12px;
+
+      cursor: pointer;
+
+      backdrop-filter: blur(8px);
+    }
+
+    .language-select option {
+      background: white;
+      color: #111;
+    }
+
+
+    /* =========================
+       HERO MOSAIC
+    ========================= */
+
+    .hero {
+      position: relative;
+      height: 92vh;
+      min-height: 650px;
+
+      display: grid;
+      grid-template-columns: 1.7fr .8fr;
+      gap: 5px;
+
+      background: #101d22;
+      overflow: hidden;
+    }
+
+    .hero-main {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-side {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      gap: 5px;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-main::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(5,20,26,.78) 0%,
+          rgba(5,20,26,.35) 48%,
+          rgba(5,20,26,.05) 100%
+        );
+    }
+
+    .hero-copy {
+      position: absolute;
+      z-index: 5;
+
+      left: 7%;
+      bottom: 10%;
+
+      width: min(680px, 82%);
+      color: white;
+    }
+
+    .hero-label {
+      display: inline-block;
+
+      padding: 8px 14px;
+      margin-bottom: 18px;
+
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.55);
+
+      background: rgba(255,255,255,.12);
+      backdrop-filter: blur(8px);
+
+      font-size: .8rem;
+      font-weight: 800;
+      letter-spacing: 1.3px;
+    }
+
+    .hero h1 {
+      font-size: clamp(3.5rem, 7vw, 7rem);
+      line-height: .9;
+      margin-bottom: 22px;
+    }
+
+    .hero-text {
+      max-width: 590px;
+
+      font-size: 1.12rem;
+      line-height: 1.7;
+
+      color: rgba(255,255,255,.9);
+
+      margin-bottom: 28px;
+    }
+
+    .hero-facts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .hero-facts span {
+      padding: 10px 14px;
+
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.3);
+
+      background: rgba(0,0,0,.28);
+      backdrop-filter: blur(8px);
+
+      font-size: .88rem;
+      font-weight: 700;
+    }
+
+
+    /* =========================
+       GENERAL
+    ========================= */
+
+    .container {
+      width: min(1240px, 90%);
+      margin: auto;
+    }
+
+    .section {
+      padding: 90px 0;
+    }
+
+    .section-label {
+      color: #0785a2;
+
+      font-size: .8rem;
+      font-weight: 800;
+      letter-spacing: 1.6px;
+
+      text-transform: uppercase;
+
+      margin-bottom: 11px;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.08;
+      margin-bottom: 20px;
+    }
+
+    .muted {
+      color: #65737a;
+      line-height: 1.8;
+    }
+
+
+    /* =========================
+       INTRO B
+    ========================= */
+
+    .intro-layout {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .intro-image {
+      position: relative;
+    }
+
+    .intro-image img {
+      height: 560px;
+      object-fit: cover;
+
+      border-radius: 28px;
+    }
+
+    .size-badge {
+      position: absolute;
+
+      right: -25px;
+      bottom: 35px;
+
+      width: 135px;
+      height: 135px;
+
+      border-radius: 50%;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      background: #123f4e;
+      color: white;
+
+      box-shadow: 0 16px 40px rgba(10,30,40,.22);
+    }
+
+    .size-badge strong {
+      font-size: 2rem;
+    }
+
+    .size-badge span {
+      margin-top: 4px;
+      font-size: .77rem;
+      opacity: .8;
+    }
+
+    .intro-copy p {
+      color: #5f6e74;
+      line-height: 1.85;
+      font-size: 1.04rem;
+      margin-bottom: 28px;
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .detail {
+      background: white;
+
+      padding: 18px;
+      border-radius: 16px;
+
+      border: 1px solid #e4ebed;
+    }
+
+    .detail small {
+      display: block;
+      color: #829096;
+      margin-bottom: 5px;
+    }
+
+    .detail strong {
+      font-size: .96rem;
+    }
+
+
+    /* =========================
+       FEATURE STRIP
+    ========================= */
+
+    .feature-strip {
+      background: #123f4e;
+      color: white;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .feature {
+      padding: 36px 30px;
+      border-right: 1px solid rgba(255,255,255,.14);
+    }
+
+    .feature:last-child {
+      border-right: none;
+    }
+
+    .feature-icon {
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+    }
+
+    .feature strong {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .feature p {
+      color: rgba(255,255,255,.68);
+      line-height: 1.5;
+      font-size: .88rem;
+    }
+
+
+    /* =========================
+       GALLERY
+    ========================= */
+
+    .gallery-section {
+      background: #edf4f5;
+    }
+
+    .gallery-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 30px;
+      margin-bottom: 35px;
+    }
+
+    .gallery-head p {
+      max-width: 420px;
+      color: #69777d;
+      line-height: 1.7;
+    }
+
+    .gallery-mosaic {
+      display: grid;
+
+      grid-template-columns: 1.2fr .8fr .8fr;
+      grid-template-rows: 300px 230px;
+
+      gap: 10px;
+
+      border-radius: 26px;
+      overflow: hidden;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .gallery-item:first-child {
+      grid-row: 1 / 3;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+
+      transition: transform .4s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.035);
+    }
+
+    .gallery-more {
+      position: absolute;
+      right: 17px;
+      bottom: 17px;
+
+      background: rgba(255,255,255,.93);
+
+      padding: 10px 14px;
+      border-radius: 999px;
+
+      font-size: .85rem;
+      font-weight: 800;
+    }
+
+
+    /* =========================
+       SPACE SECTION
+    ========================= */
+
+    .space-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .space-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .space-images img {
+      border-radius: 20px;
+      height: 360px;
+      object-fit: cover;
+    }
+
+    .space-images img:nth-child(2) {
+      margin-top: 50px;
+    }
+
+    .space-copy p {
+      color: #647279;
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+
+    .sleep-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .sleep-item {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+
+      background: #f3f7f7;
+      padding: 15px 17px;
+
+      border-radius: 15px;
+    }
+
+
+    /* =========================
+       AMENITIES
+    ========================= */
+
+    .amenities-section {
+      background: white;
+    }
+
+    .amenities-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 13px;
+
+      margin-top: 35px;
+    }
+
+    .amenity {
+      min-height: 78px;
+
+      display: flex;
+      align-items: center;
+      gap: 13px;
+
+      padding: 18px;
+
+      border: 1px solid #e3e9eb;
+      border-radius: 17px;
+
+      background: #fafcfc;
+    }
+
+    .amenity-icon {
+      font-size: 1.35rem;
+    }
+
+
+    /* =========================
+       BEACH PANEL
+    ========================= */
+
+    .beach-panel {
+      min-height: 600px;
+
+      display: flex;
+      align-items: center;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(3,23,31,.82),
+          rgba(3,23,31,.22)
+        ),
+        url("images/seashore-b/b13.webp")
+        center / cover no-repeat;
+
+      color: white;
+    }
+
+    .beach-copy {
+      max-width: 550px;
+    }
+
+    .beach-copy .section-label {
+      color: #81dded;
+    }
+
+    .beach-copy p {
+      line-height: 1.8;
+      color: rgba(255,255,255,.82);
+    }
+
+
+    /* =========================
+       BOOKING
+    ========================= */
+
+    .booking-section {
+      background: #f0f5f5;
+    }
+
+    .booking-layout {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 65px;
+      align-items: center;
+    }
+
+    .booking-copy p {
+      line-height: 1.8;
+      color: #66757b;
+      max-width: 470px;
+    }
+
+    .booking-box {
+      background: white;
+
+      padding: 32px;
+
+      border-radius: 25px;
+
+      box-shadow:
+        0 20px 50px rgba(15,49,60,.1);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .field {
+      margin-bottom: 15px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    .field label {
+      display: block;
+
+      font-size: .9rem;
+      font-weight: 700;
+
+      margin-bottom: 8px;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+
+      padding: 13px 14px;
+
+      border: 1px solid #d8e1e3;
+      border-radius: 12px;
+
+      background: white;
+      outline: none;
+    }
+
+    .field textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: #1188a3;
+    }
+
+    .whatsapp-button {
+      width: 100%;
+
+      border: none;
+      border-radius: 14px;
+
+      padding: 16px;
+
+      background: #25D366;
+      color: white;
+
+      font-size: 1rem;
+      font-weight: 800;
+
+      cursor: pointer;
+    }
+
+    .booking-note {
+      color: #78868c;
+      font-size: .8rem;
+
+      text-align: center;
+
+      margin-top: 12px;
+    }
+
+
+    /* =========================
+       LOCATION
+    ========================= */
+
+    .location-layout {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 35px;
+    }
+
+    .location-card {
+      padding: 38px;
+
+      background: #123f4e;
+      color: white;
+
+      border-radius: 25px;
+    }
+
+    .location-card .section-label {
+      color: #80dcee;
+    }
+
+    .location-card p {
+      color: rgba(255,255,255,.72);
+      line-height: 1.7;
+    }
+
+    .address {
+      margin: 28px 0;
+
+      padding-top: 22px;
+
+      border-top: 1px solid rgba(255,255,255,.18);
+
+      line-height: 1.75;
+    }
+
+    .direction-button {
+      display: inline-block;
+
+      padding: 14px 20px;
+
+      background: white;
+      color: #123f4e;
+
+      border-radius: 999px;
+
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    .building-image {
+      overflow: hidden;
+      border-radius: 25px;
+    }
+
+    .building-image img {
+      height: 100%;
+      min-height: 440px;
+      object-fit: cover;
+    }
+
+
+    /* =========================
+       OTHER PROPERTY
+    ========================= */
+
+    .other-property {
+      text-align: center;
+      background: #edf4f5;
+    }
+
+    .other-card {
+      max-width: 850px;
+      margin: 35px auto 0;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+      background: white;
+
+      border-radius: 25px;
+      overflow: hidden;
+
+      text-align: left;
+
+      box-shadow:
+        0 14px 40px rgba(20,50,60,.08);
+    }
+
+    .other-card img {
+      height: 300px;
+      object-fit: cover;
+    }
+
+    .other-content {
+      padding: 35px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .other-content h3 {
+      font-size: 1.8rem;
+      margin-bottom: 13px;
+    }
+
+    .other-content p {
+      color: #67757c;
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+
+    .other-content a {
+      color: #0582a0;
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+
+    /* =========================
+       EXPLORER - LAST
+    ========================= */
+
+    .explorer-section {
+      padding: 70px 0;
+
+      background: #0c2933;
+      color: white;
+
+      text-align: center;
+    }
+
+    .explorer-label {
+      color: #7cdbea;
+
+      font-size: .78rem;
+      font-weight: 800;
+
+      letter-spacing: 1.7px;
+    }
+
+    .explorer-section h2 {
+      margin: 10px 0 14px;
+      font-size: 2rem;
+    }
+
+    .explorer-section p {
+      max-width: 650px;
+      margin: auto;
+
+      color: rgba(255,255,255,.68);
+
+      line-height: 1.7;
+    }
+
+
+    /* =========================
+       LIGHTBOX
+    ========================= */
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+
+      z-index: 100;
+
+      display: none;
+      align-items: center;
+      justify-content: center;
+
+      background: rgba(0,0,0,.94);
+
+      padding: 25px;
+    }
+
+    .lightbox.open {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 92vw;
+      max-height: 88vh;
+      object-fit: contain;
+    }
+
+    .lightbox-close {
+      position: absolute;
+
+      top: 20px;
+      right: 25px;
+
+      background: transparent;
+      border: none;
+
+      color: white;
+      font-size: 2.4rem;
+
+      cursor: pointer;
+    }
+
+    .lightbox-prev,
+    .lightbox-next {
+      position: absolute;
+      top: 50%;
+
+      transform: translateY(-50%);
+
+      width: 48px;
+      height: 48px;
+
+      border: none;
+      border-radius: 50%;
+
+      background: rgba(255,255,255,.15);
+      color: white;
+
+      font-size: 1.5rem;
+
+      cursor: pointer;
+    }
+
+    .lightbox-prev {
+      left: 20px;
+    }
+
+    .lightbox-next {
+      right: 20px;
+    }
+
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media(max-width: 850px) {
+
+      .topbar {
+        padding: 16px;
+      }
+
+      .brand {
+        display: none;
+      }
+
+      .home-link {
+        font-size: .8rem;
+        padding: 8px 11px;
+      }
+
+      .language-select {
+        padding: 8px 9px;
+      }
+
+      .hero {
+        display: block;
+
+        height: 78vh;
+        min-height: 600px;
+
+        background:
+          linear-gradient(
+            to top,
+            rgba(5,25,32,.82),
+            rgba(5,25,32,.08)
+          ),
+          url("images/seashore-b/b12.webp")
+          center / cover no-repeat;
+      }
+
+      .hero-main,
+      .hero-side {
+        display: none;
+      }
+
+      .hero-copy {
+        left: 6%;
+        bottom: 7%;
+        width: 88%;
+      }
+
+      .hero h1 {
+        font-size: 3.3rem;
+      }
+
+      .hero-text {
+        font-size: .96rem;
+      }
+
+      .section {
+        padding: 60px 0;
+      }
+
+      .intro-layout,
+      .space-layout,
+      .booking-layout,
+      .location-layout {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .intro-image img {
+        height: 420px;
+      }
+
+      .size-badge {
+        right: 15px;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .feature:nth-child(2) {
+        border-right: none;
+      }
+
+      .gallery-head {
+        display: block;
+      }
+
+      .gallery-head p {
+        margin-top: 12px;
+      }
+
+      .gallery-mosaic {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 240px 160px 160px;
+      }
+
+      .gallery-item:first-child {
+        grid-column: 1 / -1;
+        grid-row: auto;
+      }
+
+      .amenities-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .space-images img {
+        height: 300px;
+      }
+
+      .beach-panel {
+        min-height: 500px;
+      }
+
+      .other-card {
+        grid-template-columns: 1fr;
+      }
+
+      .other-card img {
+        height: 240px;
+      }
+    }
+
+
+    @media(max-width: 520px) {
+
+      .hero h1 {
+        font-size: 2.9rem;
+      }
+
+      .hero-facts span {
+        font-size: .76rem;
+        padding: 8px 10px;
+      }
+
+      .detail-grid,
+      .amenities-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .feature {
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,.14);
+      }
+
+      .feature:last-child {
+        border-bottom: none;
+      }
+
+      .space-images {
+        grid-template-columns: 1fr;
+      }
+
+      .space-images img:nth-child(2) {
+        margin-top: 0;
+      }
+
+      .gallery-mosaic {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 220px 135px 135px;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .field.full {
+        grid-column: auto;
+      }
+    }
+
+@media (min-width: 851px) {
+
+  .hero {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+
+    height: 88vh;
+    min-height: 650px;
+
+    background:
+      linear-gradient(
+        to top,
+        rgba(5, 25, 32, .80) 0%,
+        rgba(5, 25, 32, .30) 48%,
+        rgba(5, 25, 32, .08) 100%
+      ),
+      url("images/seashore-b/b12.webp")
+      center center / cover no-repeat;
+  }
+
+  .hero-main,
+  .hero-side {
+    display: none;
+  }
+
+  .hero-copy {
+    position: relative;
+    left: auto;
+    bottom: auto;
+
+    width: min(1240px, 90%);
+    margin: 0 auto;
+    padding-bottom: 70px;
+  }
+}
+
+  </style>
+</head>
+
+
+<body>
+
+
+<header class="topbar">
+
+  <div class="top-left">
+
+    <a href="index.html"
+       class="home-link"
+       data-i18n="home">
+      ← All residences
+    </a>
+
+    <div class="brand">
+      SeaShore Residence
+    </div>
+
+  </div>
+
+
+  
+
+</header>
+
+<input type="hidden" id="languageSelect" value="en">
+<!-- HERO -->
+
+<section class="hero">
+
+  <div class="hero-main">
+
+    <img
+      class="hero-image"
+      src="images/seashore-b/b12.webp"
+      alt="SeaShore B sea view living room"
+    >
+
+  </div>
+
+
+  <div class="hero-side">
+
+    <img
+      class="hero-image"
+      src="images/seashore-b/b5.webp"
+      alt="SeaShore B interior"
+    >
+
+    <img
+      class="hero-image"
+      src="images/seashore-b/b13.webp"
+      alt="Perea beach"
+    >
+
+  </div>
+
+
+  <div class="hero-copy">
+
+    <div class="hero-label"
+         data-i18n="heroLabel">
+      SPACIOUS BEACHFRONT STAY · PEREA
+    </div>
+
+    <h1>SeaShore B</h1>
+
+    <p class="hero-text"
+       data-i18n="heroText">
+      More space, more comfort and the sea right outside.
+      An 80 m² beachfront residence designed for families and groups of up to six guests.
+    </p>
+
+
+    <div class="hero-facts">
+
+      <span data-i18n="sixGuests">
+        👥 Up to 6 guests
+      </span>
+
+      <span>
+        ↔ 80 m²
+      </span>
+
+      <span data-i18n="seaView">
+        🌊 Sea view
+      </span>
+
+      <span data-i18n="beachfront">
+        🏖 Beachfront
+      </span>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<main>
+
+
+<!-- INTRO -->
+
+<section class="section">
+
+  <div class="container intro-layout">
+
+
+    <div class="intro-image">
+
+      <img
+        src="images/seashore-b/b5.webp"
+        alt="SeaShore B spacious apartment"
+      >
+
+      <div class="size-badge">
+        <strong>80</strong>
+        <span>m²</span>
+      </div>
+
+    </div>
+
+
+    <div class="intro-copy">
+
+      <div class="section-label"
+           data-i18n="welcomeLabel">
+        WELCOME TO SEASHORE B
+      </div>
+
+      <h2 class="section-title"
+          data-i18n="welcomeTitle">
+        Space to stay together
+      </h2>
+
+      <p data-i18n="description">
+        SeaShore B is a spacious 80 m² beachfront accommodation in Perea for up to six guests.
+        The residence combines generous sleeping and living areas with a fully equipped kitchen,
+        private bathroom, balcony and terrace overlooking the sea.
+        It is an excellent choice for families and groups who want extra space without giving up
+        the experience of staying directly beside the coast.
+      </p>
+
+
+      <div class="detail-grid">
+
+        <div class="detail">
+          <small data-i18n="propertyType">Property type</small>
+          <strong data-i18n="studio">Superior Studio</strong>
+        </div>
+
+        <div class="detail">
+          <small data-i18n="capacity">Capacity</small>
+          <strong data-i18n="sixGuestsShort">6 guests</strong>
+        </div>
+
+        <div class="detail">
+          <small data-i18n="sleeping">Sleeping</small>
+          <strong data-i18n="sleepingSummary">Multiple sleeping areas</strong>
+        </div>
+
+        <div class="detail">
+          <small data-i18n="location">Location</small>
+          <strong>Perea, Greece</strong>
+        </div>
+<div class="detail">
+  <small>AMA</small>
+  <strong>00003314400</strong>
+</div>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- FEATURE STRIP -->
+
+<section class="feature-strip">
+
+  <div class="container feature-grid">
+
+    <div class="feature">
+
+      <div class="feature-icon">🌊</div>
+
+      <strong data-i18n="feature1">
+        Front-row sea views
+      </strong>
+
+      <p data-i18n="feature1Text">
+        Enjoy the Thermaic Gulf directly from your accommodation.
+      </p>
+
+    </div>
+
+
+    <div class="feature">
+
+      <div class="feature-icon">👨‍👩‍👧‍👦</div>
+
+      <strong data-i18n="feature2">
+        Made for families
+      </strong>
+
+      <p data-i18n="feature2Text">
+        Generous space for families and groups of up to six guests.
+      </p>
+
+    </div>
+
+
+    <div class="feature">
+
+      <div class="feature-icon">🍳</div>
+
+      <strong data-i18n="feature3">
+        Full kitchen
+      </strong>
+
+      <p data-i18n="feature3Text">
+        Kitchen with oven, microwave, dishwasher and refrigerator.
+      </p>
+
+    </div>
+
+
+    <div class="feature">
+
+      <div class="feature-icon">📶</div>
+
+      <strong data-i18n="feature4">
+        Fast free WiFi
+      </strong>
+
+      <p data-i18n="feature4Text">
+        Fast WiFi tested at approximately 97 Mbps.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- GALLERY -->
+
+<section class="section gallery-section">
+
+  <div class="container">
+
+
+    <div class="gallery-head">
+
+      <div>
+
+        <div class="section-label"
+             data-i18n="galleryLabel">
+          EXPLORE SEASHORE B
+        </div>
+
+        <h2 class="section-title"
+            data-i18n="galleryTitle">
+          Room to breathe. Views to remember.
+        </h2>
+
+      </div>
+
+
+      <p data-i18n="galleryText">
+        Discover the generous living areas, sleeping spaces,
+        kitchen and beachfront setting of SeaShore B.
+      </p>
+
+    </div>
+
+
+    <div class="gallery-mosaic">
+
+
+      <div class="gallery-item"
+           data-gallery-index="0">
+
+        <img
+          src="images/seashore-b/b12.webp"
+          alt="SeaShore B living area"
+        >
+
+      </div>
+
+
+      <div class="gallery-item"
+           data-gallery-index="1">
+
+        <img
+          src="images/seashore-b/b0.webp"
+          alt="SeaShore B interior"
+        >
+
+      </div>
+
+
+      <div class="gallery-item"
+           data-gallery-index="2">
+
+        <img
+          src="images/seashore-b/b14.webp"
+          alt="SeaShore B kitchen"
+        >
+
+      </div>
+
+
+      <div class="gallery-item"
+           data-gallery-index="3">
+
+        <img
+          src="images/seashore-b/b6.webp"
+          alt="SeaShore B sea view"
+        >
+
+      </div>
+
+
+      <div class="gallery-item"
+           data-gallery-index="4">
+
+        <img
+          src="images/seashore-b/b3.webp"
+          alt="SeaShore B interior"
+        >
+
+        <div class="gallery-more"
+             data-i18n="viewGallery">
+          View gallery
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- SPACE -->
+
+<section class="section">
+
+  <div class="container space-layout">
+
+
+    <div class="space-copy">
+
+      <div class="section-label"
+           data-i18n="sleepLabel">
+        SLEEP & RELAX
+      </div>
+
+      <h2 class="section-title"
+          data-i18n="sleepTitle">
+        Flexible space for up to six guests
+      </h2>
+
+      <p data-i18n="sleepText">
+        SeaShore B provides several sleeping options within its spacious layout,
+        making it suitable for families and groups who want to stay together
+        while still enjoying generous living space.
+      </p>
+
+
+      <div class="sleep-list">
+
+        <div class="sleep-item">
+          🛏️
+          <span data-i18n="doubleBed">
+            1 extra-large double bed
+          </span>
+        </div>
+
+        <div class="sleep-item">
+          🛏️
+          <span data-i18n="singleBeds">
+            2 single beds
+          </span>
+        </div>
+
+        <div class="sleep-item">
+          🛋️
+          <span data-i18n="sofaBed">
+            1 sofa bed
+          </span>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="space-images">
+
+      <img
+        src="images/seashore-b/b10.webp"
+        alt="SeaShore B sleeping area"
+      >
+
+      <img
+        src="images/seashore-b/b2.webp"
+        alt="SeaShore B main sleeping area"
+      >
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- AMENITIES -->
+
+<section class="section amenities-section">
+
+  <div class="container">
+
+    <div class="section-label"
+         data-i18n="amenitiesLabel">
+      AMENITIES
+    </div>
+
+    <h2 class="section-title"
+        data-i18n="amenitiesTitle">
+      Equipped for an easy stay
+    </h2>
+
+
+    <div class="amenities-grid">
+
+      <div class="amenity">
+        <span class="amenity-icon">🏖</span>
+        <span data-i18n="amBeach">Beachfront</span>
+      </div>
+
+      <div class="amenity">
+        <span class="amenity-icon">🌊</span>
+        <span data-i18n="amSea">Sea view</span>
+      </div>
+
+      <div class="amenity">
+        <span class="amenity-icon">🌅</span>
+        <span data-i18n="amBalcony">Balcony</span>
+      </div>
+
+      <div class="amenity">
+        <span class="amenity-icon">☀️</span>
+        <span data-i18n="amTerrace">Terrace</span>
+      </div>
+
+      <div class="amenity">
+        <span class="amenity-icon">📶</span>
+        <span data-i18n="amWifi">Fast free WiFi</span>
+      </div>
+
+      <div class="amenity">
+        <span class="amenity-icon">❄️</span>
+        <span data-i18n="amAc">Air conditioning</span>
+      </div>
+
+      <div class="amenity">
+        <span class="amenity-icon">🍳</span>
+        <span data-i18n="amKitchen">Fully equipped kitchen</span>
+      </div>
+
+      <div class="amenity">
+        <span class="amenity-icon">🍽️</span>
+        <span data-i18n="amDishwasher">Dishwasher</span>
+      </div>
+
+      <div class="amenity">
+        <span class="amenity-icon">🧺</span>
+        <span data-i18n="amWasher">Washing machine</span>
+      </div>
+
+      <div class="amenity">
+        <span class="amenity-icon">📺</span>
+        <span data-i18n="amTv">Flat-screen TV</span>
+      </div>
+
+      <div class="amenity">
+        <span class="amenity-icon">🚿</span>
+        <span data-i18n="amBathroom">Private bathroom</span>
+      </div>
+
+      <div class="amenity">
+        <span class="amenity-icon">🅿️</span>
+        <span data-i18n="amParking">Free public parking nearby</span>
+      </div>
+
+      <div class="amenity">
+        <span class="amenity-icon">☕</span>
+        <span data-i18n="amCoffee">Tea / coffee facilities</span>
+      </div>
+
+      <div class="amenity">
+        <span class="amenity-icon">🔥</span>
+        <span data-i18n="amHeating">Heating</span>
+      </div>
+
+      <div class="amenity">
+        <span class="amenity-icon">🚭</span>
+        <span data-i18n="amNonSmoking">Non-smoking accommodation</span>
+      </div>
+
+      <div class="amenity">
+        <span class="amenity-icon">👨‍👩‍👧‍👦</span>
+        <span data-i18n="amFamily">Family friendly</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- BEACH -->
+
+<section class="beach-panel">
+
+  <div class="container">
+
+    <div class="beach-copy">
+
+      <div class="section-label"
+           data-i18n="beachLabel">
+        PEREA BEACH
+      </div>
+
+      <h2 class="section-title"
+          data-i18n="beachTitle">
+        Step outside and you're already by the sea
+      </h2>
+
+      <p data-i18n="beachText">
+        SeaShore B is located only steps from Perea Beach,
+        placing the waterfront, seaside promenade and coastal atmosphere
+        directly around your stay.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- BOOKING -->
+
+<section class="section booking-section"
+         id="booking">
+
+  <div class="container booking-layout">
+
+
+    <div class="booking-copy">
+
+      <div class="section-label"
+           data-i18n="bookingLabel">
+        PLAN YOUR STAY
+      </div>
+
+      <h2 class="section-title"
+          data-i18n="bookingTitle">
+        Request SeaShore B
+      </h2>
+
+      <p data-i18n="bookingText">
+        Select your preferred arrival and departure dates
+        and send your request directly to the host through WhatsApp.
+        Availability will be confirmed personally.
+      </p>
+
+    </div>
+
+
+    <div class="booking-box">
+
+      <div class="form-grid">
+
+
+        <div class="field">
+
+          <label for="checkin"
+                 data-i18n="checkin">
+            Check-in
+          </label>
+
+          <input type="date"
+                 id="checkin">
+
+        </div>
+
+
+        <div class="field">
+
+          <label for="checkout"
+                 data-i18n="checkout">
+            Check-out
+          </label>
+
+          <input type="date"
+                 id="checkout">
+
+        </div>
+
+
+        <div class="field full">
+
+          <label for="guests"
+                 data-i18n="guests">
+            Guests
+          </label>
+
+          <select id="guests">
+
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6" selected>6</option>
+
+          </select>
+
+        </div>
+
+
+        <div class="field full">
+
+          <label for="message"
+                 data-i18n="message">
+            Message
+          </label>
+
+          <textarea
+            id="message"
+            data-i18n-placeholder="messagePlaceholder"
+            placeholder="Optional message..."
+          ></textarea>
+
+        </div>
+
+
+        <div class="field full">
+
+          <button
+            class="whatsapp-button"
+            id="whatsappButton"
+            type="button"
+            data-i18n="send">
+            Send request on WhatsApp
+          </button>
+
+
+          <div class="booking-note"
+               data-i18n="note">
+
+            This is a booking request, not an automatic confirmation.
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- LOCATION -->
+
+<section class="section">
+
+  <div class="container location-layout">
+
+
+    <div class="location-card">
+
+      <div class="section-label"
+           data-i18n="locationLabel">
+        LOCATION
+      </div>
+
+      <h2 class="section-title"
+          data-i18n="locationTitle">
+        SeaShore Residence · Perea
+      </h2>
+
+      <p data-i18n="locationText">
+        Stay directly beside the waterfront in one of Perea's most convenient
+        coastal locations.
+      </p>
+
+
+      <div class="address">
+
+        Κουντουριώτου 61 &amp; 25ης Μαρτίου 1<br>
+        Peraia, 570 19<br>
+        Greece
+
+      </div>
+
+
+      <a
+        class="direction-button"
+        href="https://www.google.com/maps/search/?api=1&query=40.509104844973606,22.924549951876596"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-i18n="directions">
+
+        Get directions
+
+      </a>
+
+    </div>
+
+
+    <div class="building-image">
+
+      <img
+        src="images/seashore-a/inside9.webp"
+        alt="SeaShore Residence Perea"
+      >
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- SEA SHORE A -->
+
+<section class="section other-property">
+
+  <div class="container">
+
+    <div class="section-label"
+         data-i18n="otherLabel">
+      NEED A SMALLER SPACE?
+    </div>
+
+    <h2 class="section-title"
+        data-i18n="otherTitle">
+      Discover SeaShore A
+    </h2>
+
+
+    <div class="other-card">
+
+      <img
+        src="images/seashore-a/inside.webp"
+        alt="SeaShore A"
+      >
+
+
+      <div class="other-content">
+
+        <h3>
+          SeaShore A
+        </h3>
+
+        <p data-i18n="otherText">
+          SeaShore A offers a more intimate 40 m² beachfront stay
+          for up to four guests, with the same spectacular location by the sea.
+        </p>
+
+        <a href="seashore-a.html"
+           data-i18n="viewA">
+          View SeaShore A →
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- HALKIDIKI EXPLORER - ABSOLUTE END -->
+
+<section class="explorer-section">
+
+  <div class="container">
+
+    <div class="explorer-label">
+      HALKIDIKI EXPLORER
+    </div>
+
+    <h2 data-i18n="explorerTitle">
+      Discover more during your stay
+    </h2>
+
+    <p data-i18n="explorerText">
+      SeaShore Residence is part of the Halkidiki Explorer ecosystem,
+      helping guests discover beaches, places, food and experiences
+      across the region.
+    </p>
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+<!-- LIGHTBOX -->
+
+<div class="lightbox"
+     id="lightbox">
+
+  <button
+    class="lightbox-close"
+    id="lightboxClose">
+    ×
+  </button>
+
+  <button
+    class="lightbox-prev"
+    id="lightboxPrev">
+    ‹
+  </button>
+
+  <img
+    id="lightboxImage"
+    src=""
+    alt="SeaShore B Gallery"
+  >
+
+  <button
+    class="lightbox-next"
+    id="lightboxNext">
+    ›
+  </button>
+
+</div>
+
+
+<script>
+
+/* =========================
+   TRANSLATIONS
+========================= */
+
+const translations = {
+
+  en: {
+
+    home: "← All residences",
+
+    heroLabel: "SPACIOUS BEACHFRONT STAY · PEREA",
+
+    heroText:
+      "More space, more comfort and the sea right outside. An 80 m² beachfront residence designed for families and groups of up to six guests.",
+
+    sixGuests: "👥 Up to 6 guests",
+    seaView: "🌊 Sea view",
+    beachfront: "🏖 Beachfront",
+
+    welcomeLabel: "WELCOME TO SEASHORE B",
+    welcomeTitle: "Space to stay together",
+
+    description:
+      "SeaShore B is a spacious 80 m² beachfront accommodation in Perea for up to six guests. The residence combines generous sleeping and living areas with a fully equipped kitchen, private bathroom, balcony and terrace overlooking the sea. It is an excellent choice for families and groups who want extra space without giving up the experience of staying directly beside the coast.",
+
+    propertyType: "Property type",
+    studio: "Superior Studio",
+    capacity: "Capacity",
+    sixGuestsShort: "6 guests",
+    sleeping: "Sleeping",
+    sleepingSummary: "Multiple sleeping areas",
+    location: "Location",
+
+    feature1: "Front-row sea views",
+    feature1Text: "Enjoy the Thermaic Gulf directly from your accommodation.",
+
+    feature2: "Made for families",
+    feature2Text: "Generous space for families and groups of up to six guests.",
+
+    feature3: "Full kitchen",
+    feature3Text: "Kitchen with oven, microwave, dishwasher and refrigerator.",
+
+    feature4: "Fast free WiFi",
+    feature4Text: "Fast WiFi tested at approximately 97 Mbps.",
+
+    galleryLabel: "EXPLORE SEASHORE B",
+    galleryTitle: "Room to breathe. Views to remember.",
+
+    galleryText:
+      "Discover the generous living areas, sleeping spaces, kitchen and beachfront setting of SeaShore B.",
+
+    viewGallery: "View gallery",
+
+    sleepLabel: "SLEEP & RELAX",
+    sleepTitle: "Flexible space for up to six guests",
+
+    sleepText:
+      "SeaShore B provides several sleeping options within its spacious layout, making it suitable for families and groups who want to stay together while still enjoying generous living space.",
+
+    doubleBed: "1 extra-large double bed",
+    singleBeds: "2 single beds",
+    sofaBed: "1 sofa bed",
+
+    amenitiesLabel: "AMENITIES",
+    amenitiesTitle: "Equipped for an easy stay",
+
+    amBeach: "Beachfront",
+    amSea: "Sea view",
+    amBalcony: "Balcony",
+    amTerrace: "Terrace",
+    amWifi: "Fast free WiFi",
+    amAc: "Air conditioning",
+    amKitchen: "Fully equipped kitchen",
+    amDishwasher: "Dishwasher",
+    amWasher: "Washing machine",
+    amTv: "Flat-screen TV",
+    amBathroom: "Private bathroom",
+    amParking: "Free public parking nearby",
+    amCoffee: "Tea / coffee facilities",
+    amHeating: "Heating",
+    amNonSmoking: "Non-smoking accommodation",
+    amFamily: "Family friendly",
+
+    beachLabel: "PEREA BEACH",
+    beachTitle: "Step outside and you're already by the sea",
+
+    beachText:
+      "SeaShore B is located only steps from Perea Beach, placing the waterfront, seaside promenade and coastal atmosphere directly around your stay.",
+
+    bookingLabel: "PLAN YOUR STAY",
+    bookingTitle: "Request SeaShore B",
+
+    bookingText:
+      "Select your preferred arrival and departure dates and send your request directly to the host through WhatsApp. Availability will be confirmed personally.",
+
+    checkin: "Check-in",
+    checkout: "Check-out",
+    guests: "Guests",
+    message: "Message",
+    messagePlaceholder: "Optional message...",
+    send: "Send request on WhatsApp",
+
+    note:
+      "This is a booking request, not an automatic confirmation.",
+
+    locationLabel: "LOCATION",
+    locationTitle: "SeaShore Residence · Perea",
+
+    locationText:
+      "Stay directly beside the waterfront in one of Perea's most convenient coastal locations.",
+
+    directions: "Get directions",
+
+    otherLabel: "NEED A SMALLER SPACE?",
+    otherTitle: "Discover SeaShore A",
+
+    otherText:
+      "SeaShore A offers a more intimate 40 m² beachfront stay for up to four guests, with the same spectacular location by the sea.",
+
+    viewA: "View SeaShore A →",
+
+    explorerTitle: "Discover more during your stay",
+
+    explorerText:
+      "SeaShore Residence is part of the Halkidiki Explorer ecosystem, helping guests discover beaches, places, food and experiences across the region."
+  },
+
+
+  ro: {
+
+    home: "← Toate cazările",
+
+    heroLabel: "CAZARE SPAȚIOASĂ LA PLAJĂ · PEREA",
+
+    heroText:
+      "Mai mult spațiu, mai mult confort și marea chiar în față. O cazare de 80 m² pentru familii și grupuri de până la șase persoane.",
+
+    sixGuests: "👥 Până la 6 persoane",
+    seaView: "🌊 Vedere la mare",
+    beachfront: "🏖 La plajă",
+
+    welcomeLabel: "BINE AI VENIT LA SEASHORE B",
+    welcomeTitle: "Spațiu pentru a fi împreună",
+
+    description:
+      "SeaShore B este o cazare spațioasă de 80 m² în Perea, aflată chiar lângă plajă și potrivită pentru până la șase persoane. Proprietatea oferă zone generoase pentru dormit și relaxare, bucătărie complet utilată, baie privată, balcon și terasă cu vedere la mare. Este o alegere excelentă pentru familii și grupuri care își doresc mai mult spațiu fără să renunțe la experiența unei vacanțe lângă mare.",
+
+    propertyType: "Tip proprietate",
+    studio: "Studio Superior",
+    capacity: "Capacitate",
+    sixGuestsShort: "6 persoane",
+    sleeping: "Locuri de dormit",
+    sleepingSummary: "Mai multe zone de dormit",
+    location: "Locație",
+
+    feature1: "Marea chiar în față",
+    feature1Text: "Bucură-te de priveliștea Golfului Thermaic direct din cazare.",
+
+    feature2: "Ideal pentru familii",
+    feature2Text: "Spațiu generos pentru familii și grupuri de până la șase persoane.",
+
+    feature3: "Bucătărie completă",
+    feature3Text: "Cuptor, microunde, mașină de spălat vase și frigider.",
+
+    feature4: "WiFi rapid gratuit",
+    feature4Text: "Conexiune WiFi testată la aproximativ 97 Mbps.",
+
+    galleryLabel: "DESCOPERĂ SEASHORE B",
+    galleryTitle: "Mai mult spațiu. O priveliște de ținut minte.",
+
+    galleryText:
+      "Descoperă zonele generoase de living, spațiile de dormit, bucătăria și amplasarea chiar lângă mare.",
+
+    viewGallery: "Vezi galeria",
+
+    sleepLabel: "ODIHNĂ & RELAXARE",
+    sleepTitle: "Spațiu flexibil pentru până la șase persoane",
+
+    sleepText:
+      "SeaShore B oferă mai multe opțiuni de dormit într-un spațiu generos, fiind potrivit pentru familii și grupuri care vor să petreacă vacanța împreună fără să renunțe la confort.",
+
+    doubleBed: "1 pat dublu extra-large",
+    singleBeds: "2 paturi single",
+    sofaBed: "1 canapea extensibilă",
+
+    amenitiesLabel: "FACILITĂȚI",
+    amenitiesTitle: "Tot ce ai nevoie pentru un sejur confortabil",
+
+    amBeach: "Acces imediat la plajă",
+    amSea: "Vedere la mare",
+    amBalcony: "Balcon",
+    amTerrace: "Terasă",
+    amWifi: "WiFi rapid gratuit",
+    amAc: "Aer condiționat",
+    amKitchen: "Bucătărie complet utilată",
+    amDishwasher: "Mașină de spălat vase",
+    amWasher: "Mașină de spălat",
+    amTv: "TV cu ecran plat",
+    amBathroom: "Baie privată",
+    amParking: "Parcare publică gratuită în apropiere",
+    amCoffee: "Facilități cafea / ceai",
+    amHeating: "Încălzire",
+    amNonSmoking: "Cazare pentru nefumători",
+    amFamily: "Potrivit pentru familii",
+
+    beachLabel: "PLAJĂ PEREA",
+    beachTitle: "Ieși afară și ești deja lângă mare",
+
+    beachText:
+      "SeaShore B se află la doar câțiva pași de Plaja din Perea, cu promenada și atmosfera de litoral chiar în jurul proprietății.",
+
+    bookingLabel: "PLANIFICĂ SEJURUL",
+    bookingTitle: "Solicită SeaShore B",
+
+    bookingText:
+      "Selectează perioada dorită și trimite cererea direct proprietarului prin WhatsApp. Disponibilitatea va fi confirmată personal.",
+
+    checkin: "Sosire",
+    checkout: "Plecare",
+    guests: "Oaspeți",
+    message: "Mesaj",
+    messagePlaceholder: "Mesaj opțional...",
+    send: "Trimite cererea pe WhatsApp",
+
+    note:
+      "Aceasta este o cerere de rezervare, nu o confirmare automată.",
+
+    locationLabel: "LOCAȚIE",
+    locationTitle: "SeaShore Residence · Perea",
+
+    locationText:
+      "Bucură-te de o cazare chiar lângă faleză, într-o zonă excelentă a litoralului din Perea.",
+
+    directions: "Deschide în Google Maps",
+
+    otherLabel: "AI NEVOIE DE UN SPAȚIU MAI MIC?",
+    otherTitle: "Descoperă SeaShore A",
+
+    otherText:
+      "SeaShore A oferă o cazare mai intimă de 40 m² pentru până la patru persoane, în aceeași locație spectaculoasă lângă mare.",
+
+    viewA: "Vezi SeaShore A →",
+
+    explorerTitle: "Descoperă mai mult în timpul vacanței",
+
+    explorerText:
+      "SeaShore Residence face parte din ecosistemul Halkidiki Explorer, care ajută oaspeții să descopere plaje, locuri, gastronomie și experiențe din regiune."
+  },
+
+
+  el: {
+
+    home: "← Όλα τα καταλύματα",
+    heroLabel: "ΕΥΡΥΧΩΡΗ ΔΙΑΜΟΝΗ ΔΙΠΛΑ ΣΤΗ ΘΑΛΑΣΣΑ · ΠΕΡΑΙΑ",
+
+    heroText:
+      "Περισσότερος χώρος, περισσότερη άνεση και η θάλασσα ακριβώς μπροστά σας. Ένα κατάλυμα 80 m² για έως έξι επισκέπτες.",
+
+    sixGuests: "👥 Έως 6 επισκέπτες",
+    seaView: "🌊 Θέα στη θάλασσα",
+    beachfront: "🏖 Δίπλα στην παραλία",
+
+    welcomeLabel: "ΚΑΛΩΣ ΗΡΘΑΤΕ ΣΤΟ SEASHORE B",
+    welcomeTitle: "Χώρος για να μείνετε όλοι μαζί",
+
+    description:
+      "Το SeaShore B είναι ένα ευρύχωρο κατάλυμα 80 m² στην Περαία για έως έξι επισκέπτες, δίπλα στη θάλασσα. Διαθέτει μεγάλους χώρους ύπνου και χαλάρωσης, πλήρως εξοπλισμένη κουζίνα, ιδιωτικό μπάνιο, μπαλκόνι και βεράντα με θέα στη θάλασσα.",
+
+    propertyType: "Τύπος",
+    studio: "Superior Studio",
+    capacity: "Χωρητικότητα",
+    sixGuestsShort: "6 επισκέπτες",
+    sleeping: "Ύπνος",
+    sleepingSummary: "Πολλαπλοί χώροι ύπνου",
+    location: "Τοποθεσία",
+
+    feature1: "Θέα στη θάλασσα",
+    feature1Text: "Απολαύστε τον Θερμαϊκό Κόλπο από το κατάλυμά σας.",
+
+    feature2: "Ιδανικό για οικογένειες",
+    feature2Text: "Άνετος χώρος για έως έξι επισκέπτες.",
+
+    feature3: "Πλήρης κουζίνα",
+    feature3Text: "Φούρνος, φούρνος μικροκυμάτων, πλυντήριο πιάτων και ψυγείο.",
+
+    feature4: "Γρήγορο δωρεάν WiFi",
+    feature4Text: "WiFi περίπου 97 Mbps.",
+
+    galleryLabel: "ΑΝΑΚΑΛΥΨΤΕ ΤΟ SEASHORE B",
+    galleryTitle: "Περισσότερος χώρος. Αξέχαστη θέα.",
+    galleryText: "Ανακαλύψτε τους χώρους διαμονής και την παραθαλάσσια τοποθεσία.",
+
+    viewGallery: "Δείτε τη συλλογή",
+
+    sleepLabel: "ΥΠΝΟΣ & ΧΑΛΑΡΩΣΗ",
+    sleepTitle: "Χώρος για έως έξι επισκέπτες",
+    sleepText: "Το SeaShore B προσφέρει ευέλικτες επιλογές ύπνου για οικογένειες και παρέες.",
+
+    doubleBed: "1 πολύ μεγάλο διπλό κρεβάτι",
+    singleBeds: "2 μονά κρεβάτια",
+    sofaBed: "1 καναπές-κρεβάτι",
+
+    amenitiesLabel: "ΠΑΡΟΧΕΣ",
+    amenitiesTitle: "Άνεση σε όλη τη διάρκεια της διαμονής",
+
+    amBeach: "Παραθαλάσσια τοποθεσία",
+    amSea: "Θέα στη θάλασσα",
+    amBalcony: "Μπαλκόνι",
+    amTerrace: "Βεράντα",
+    amWifi: "Γρήγορο δωρεάν WiFi",
+    amAc: "Κλιματισμός",
+    amKitchen: "Πλήρως εξοπλισμένη κουζίνα",
+    amDishwasher: "Πλυντήριο πιάτων",
+    amWasher: "Πλυντήριο ρούχων",
+    amTv: "Τηλεόραση",
+    amBathroom: "Ιδιωτικό μπάνιο",
+    amParking: "Δωρεάν δημόσιο πάρκινγκ κοντά",
+    amCoffee: "Καφές / τσάι",
+    amHeating: "Θέρμανση",
+    amNonSmoking: "Κατάλυμα μη καπνιστών",
+    amFamily: "Ιδανικό για οικογένειες",
+
+    beachLabel: "ΠΑΡΑΛΙΑ ΠΕΡΑΙΑΣ",
+    beachTitle: "Η θάλασσα ακριβώς έξω από την πόρτα σας",
+    beachText: "Το SeaShore B βρίσκεται λίγα βήματα από την παραλία της Περαίας.",
+
+    bookingLabel: "ΟΡΓΑΝΩΣΤΕ ΤΗ ΔΙΑΜΟΝΗ",
+    bookingTitle: "Ζητήστε το SeaShore B",
+    bookingText: "Επιλέξτε τις ημερομηνίες σας και στείλτε αίτημα μέσω WhatsApp.",
+
+    checkin: "Άφιξη",
+    checkout: "Αναχώρηση",
+    guests: "Επισκέπτες",
+    message: "Μήνυμα",
+    messagePlaceholder: "Προαιρετικό μήνυμα...",
+    send: "Αποστολή μέσω WhatsApp",
+    note: "Πρόκειται για αίτημα κράτησης και όχι αυτόματη επιβεβαίωση.",
+
+    locationLabel: "ΤΟΠΟΘΕΣΙΑ",
+    locationTitle: "SeaShore Residence · Περαία",
+    locationText: "Μείνετε δίπλα στην παραλιακή ζώνη της Περαίας.",
+    directions: "Οδηγίες",
+
+    otherLabel: "ΧΡΕΙΑΖΕΣΤΕ ΜΙΚΡΟΤΕΡΟ ΧΩΡΟ;",
+    otherTitle: "Ανακαλύψτε το SeaShore A",
+    otherText: "Το SeaShore A προσφέρει 40 m² για έως τέσσερις επισκέπτες.",
+    viewA: "Δείτε το SeaShore A →",
+
+    explorerTitle: "Ανακαλύψτε περισσότερα στις διακοπές σας",
+    explorerText: "Το SeaShore Residence αποτελεί μέρος του οικοσυστήματος Halkidiki Explorer."
+  },
+
+
+  bg: {
+
+    home: "← Всички места",
+    heroLabel: "ПРОСТОРЕН АПАРТАМЕНТ НА БРЕГА · ПЕРЕА",
+    heroText: "Повече пространство и комфорт с морето точно пред вас. 80 m² за до шест гости.",
+
+    sixGuests: "👥 До 6 гости",
+    seaView: "🌊 Морска гледка",
+    beachfront: "🏖 До плажа",
+
+    welcomeLabel: "ДОБРЕ ДОШЛИ В SEASHORE B",
+    welcomeTitle: "Пространство за цялото семейство",
+
+    description:
+      "SeaShore B предлага 80 m² пространство до морето в Переа за до шест гости, с оборудвана кухня, баня, балкон и тераса с морска гледка.",
+
+    propertyType: "Тип",
+    studio: "Superior Studio",
+    capacity: "Капацитет",
+    sixGuestsShort: "6 гости",
+    sleeping: "Спане",
+    sleepingSummary: "Няколко зони за спане",
+    location: "Местоположение",
+
+    feature1: "Морска гледка",
+    feature1Text: "Насладете се на гледката към Термайския залив.",
+
+    feature2: "За семейства",
+    feature2Text: "Пространство за до шест гости.",
+
+    feature3: "Оборудвана кухня",
+    feature3Text: "Фурна, микровълнова, съдомиялна и хладилник.",
+
+    feature4: "Бърз WiFi",
+    feature4Text: "Безплатен WiFi около 97 Mbps.",
+
+    galleryLabel: "РАЗГЛЕДАЙТЕ SEASHORE B",
+    galleryTitle: "Пространство и незабравима гледка.",
+    galleryText: "Разгледайте интериора и морската локация.",
+    viewGallery: "Галерия",
+
+    sleepLabel: "СЪН & ПОЧИВКА",
+    sleepTitle: "За до шест гости",
+    sleepText: "Гъвкави места за спане за семейства и групи.",
+
+    doubleBed: "1 много голямо двойно легло",
+    singleBeds: "2 единични легла",
+    sofaBed: "1 разтегателен диван",
+
+    amenitiesLabel: "УДОБСТВА",
+    amenitiesTitle: "Всичко необходимо за престоя",
+
+    amBeach: "До плажа",
+    amSea: "Морска гледка",
+    amBalcony: "Балкон",
+    amTerrace: "Тераса",
+    amWifi: "Бърз безплатен WiFi",
+    amAc: "Климатик",
+    amKitchen: "Оборудвана кухня",
+    amDishwasher: "Съдомиялна",
+    amWasher: "Пералня",
+    amTv: "Телевизор",
+    amBathroom: "Самостоятелна баня",
+    amParking: "Безплатен обществен паркинг наблизо",
+    amCoffee: "Кафе / чай",
+    amHeating: "Отопление",
+    amNonSmoking: "За непушачи",
+    amFamily: "Подходящо за семейства",
+
+    beachLabel: "ПЛАЖ ПЕРЕА",
+    beachTitle: "Морето е точно пред вас",
+    beachText: "SeaShore B се намира само на няколко крачки от плажа.",
+
+    bookingLabel: "ПЛАНИРАЙТЕ ПРЕСТОЯ",
+    bookingTitle: "Запитване за SeaShore B",
+    bookingText: "Изберете дати и изпратете запитване чрез WhatsApp.",
+
+    checkin: "Настаняване",
+    checkout: "Напускане",
+    guests: "Гости",
+    message: "Съобщение",
+    messagePlaceholder: "Допълнително съобщение...",
+    send: "Изпрати чрез WhatsApp",
+    note: "Това е запитване, а не автоматично потвърждение.",
+
+    locationLabel: "МЕСТОПОЛОЖЕНИЕ",
+    locationTitle: "SeaShore Residence · Переа",
+    locationText: "Настаняване директно до крайбрежието на Переа.",
+    directions: "Упътвания",
+
+    otherLabel: "ТРЯБВА ВИ ПО-МАЛКО ПРОСТРАНСТВО?",
+    otherTitle: "Разгледайте SeaShore A",
+    otherText: "SeaShore A предлага 40 m² за до четири гости.",
+    viewA: "Вижте SeaShore A →",
+
+    explorerTitle: "Открийте повече по време на почивката",
+    explorerText: "SeaShore Residence е част от Halkidiki Explorer."
+  },
+
+
+  sr: {
+
+    home: "← Svi smeštaji",
+    heroLabel: "PROSTRAN SMEŠTAJ UZ MORE · PEREA",
+    heroText: "Više prostora i udobnosti sa morem odmah ispred vas. 80 m² za do šest gostiju.",
+
+    sixGuests: "👥 Do 6 gostiju",
+    seaView: "🌊 Pogled na more",
+    beachfront: "🏖 Uz plažu",
+
+    welcomeLabel: "DOBRODOŠLI U SEASHORE B",
+    welcomeTitle: "Prostor za zajednički odmor",
+
+    description:
+      "SeaShore B je prostran smeštaj od 80 m² u Perei za do šest gostiju, sa velikim prostorima, potpuno opremljenom kuhinjom, kupatilom, balkonom i terasom sa pogledom na more.",
+
+    propertyType: "Tip",
+    studio: "Superior Studio",
+    capacity: "Kapacitet",
+    sixGuestsShort: "6 gostiju",
+    sleeping: "Spavanje",
+    sleepingSummary: "Više zona za spavanje",
+    location: "Lokacija",
+
+    feature1: "Pogled na more",
+    feature1Text: "Uživajte u pogledu na Solunski zaliv.",
+
+    feature2: "Za porodice",
+    feature2Text: "Prostor za porodice i grupe do šest gostiju.",
+
+    feature3: "Kompletna kuhinja",
+    feature3Text: "Rerna, mikrotalasna, mašina za sudove i frižider.",
+
+    feature4: "Brz besplatan WiFi",
+    feature4Text: "WiFi približno 97 Mbps.",
+
+    galleryLabel: "ISTRAŽITE SEASHORE B",
+    galleryTitle: "Više prostora. Pogled koji se pamti.",
+    galleryText: "Pogledajte prostor, kuhinju i lokaciju uz more.",
+    viewGallery: "Galerija",
+
+    sleepLabel: "SPAVANJE & ODMOR",
+    sleepTitle: "Prostor za do šest gostiju",
+    sleepText: "Fleksibilne opcije za spavanje za porodice i grupe.",
+
+    doubleBed: "1 veoma veliki bračni krevet",
+    singleBeds: "2 single kreveta",
+    sofaBed: "1 sofa na razvlačenje",
+
+    amenitiesLabel: "SADRŽAJI",
+    amenitiesTitle: "Sve za udoban boravak",
+
+    amBeach: "Uz plažu",
+    amSea: "Pogled na more",
+    amBalcony: "Balkon",
+    amTerrace: "Terasa",
+    amWifi: "Brz besplatan WiFi",
+    amAc: "Klima uređaj",
+    amKitchen: "Opremljena kuhinja",
+    amDishwasher: "Mašina za sudove",
+    amWasher: "Mašina za veš",
+    amTv: "TV",
+    amBathroom: "Privatno kupatilo",
+    amParking: "Besplatan javni parking u blizini",
+    amCoffee: "Kafa / čaj",
+    amHeating: "Grejanje",
+    amNonSmoking: "Za nepušače",
+    amFamily: "Pogodno za porodice",
+
+    beachLabel: "PLAŽA PEREA",
+    beachTitle: "More je odmah ispred vas",
+    beachText: "SeaShore B se nalazi samo nekoliko koraka od plaže u Perei.",
+
+    bookingLabel: "PLANIRAJTE BORAVAK",
+    bookingTitle: "Pošaljite upit za SeaShore B",
+    bookingText: "Izaberite datume i pošaljite upit putem WhatsApp-a.",
+
+    checkin: "Dolazak",
+    checkout: "Odlazak",
+    guests: "Gosti",
+    message: "Poruka",
+    messagePlaceholder: "Dodatna poruka...",
+    send: "Pošalji putem WhatsApp-a",
+    note: "Ovo je upit, a ne automatska potvrda.",
+
+    locationLabel: "LOKACIJA",
+    locationTitle: "SeaShore Residence · Perea",
+    locationText: "Boravite direktno uz obalu Perea.",
+    directions: "Prikaži lokaciju",
+
+    otherLabel: "TREBA VAM MANJI SMEŠTAJ?",
+    otherTitle: "Otkrijte SeaShore A",
+    otherText: "SeaShore A nudi 40 m² za do četiri gosta.",
+    viewA: "Pogledajte SeaShore A →",
+
+    explorerTitle: "Otkrijte više tokom odmora",
+    explorerText: "SeaShore Residence je deo Halkidiki Explorer ekosistema."
+  },
+
+
+  de: {
+
+    home: "← Alle Unterkünfte",
+    heroLabel: "GROSSZÜGIG DIREKT AM MEER · PEREA",
+
+    heroText:
+      "Mehr Platz, mehr Komfort und das Meer direkt vor der Tür. 80 m² für Familien und Gruppen mit bis zu sechs Gästen.",
+
+    sixGuests: "👥 Bis zu 6 Gäste",
+    seaView: "🌊 Meerblick",
+    beachfront: "🏖 Direkt am Strand",
+
+    welcomeLabel: "WILLKOMMEN IM SEASHORE B",
+    welcomeTitle: "Viel Platz für gemeinsame Zeit",
+
+    description:
+      "SeaShore B bietet 80 m² großzügigen Wohnraum direkt am Meer in Perea für bis zu sechs Gäste. Die Unterkunft verfügt über mehrere Schlaf- und Wohnbereiche, eine voll ausgestattete Küche, ein privates Badezimmer, Balkon und Terrasse mit Meerblick.",
+
+    propertyType: "Unterkunft",
+    studio: "Superior Studio",
+    capacity: "Kapazität",
+    sixGuestsShort: "6 Gäste",
+    sleeping: "Schlafen",
+    sleepingSummary: "Mehrere Schlafbereiche",
+    location: "Lage",
+
+    feature1: "Direkter Meerblick",
+    feature1Text: "Genießen Sie den Blick über den Thermaischen Golf.",
+
+    feature2: "Ideal für Familien",
+    feature2Text: "Großzügiger Platz für bis zu sechs Gäste.",
+
+    feature3: "Komplette Küche",
+    feature3Text: "Backofen, Mikrowelle, Geschirrspüler und Kühlschrank.",
+
+    feature4: "Schnelles WLAN",
+    feature4Text: "Kostenloses WLAN mit ungefähr 97 Mbps.",
+
+    galleryLabel: "SEASHORE B ENTDECKEN",
+    galleryTitle: "Mehr Raum. Unvergessliche Aussicht.",
+    galleryText: "Entdecken Sie Wohnräume, Schlafbereiche und die Lage direkt am Meer.",
+    viewGallery: "Galerie ansehen",
+
+    sleepLabel: "SCHLAFEN & ENTSPANNEN",
+    sleepTitle: "Flexibler Platz für bis zu sechs Gäste",
+    sleepText: "Mehrere Schlafmöglichkeiten machen SeaShore B ideal für Familien und Gruppen.",
+
+    doubleBed: "1 extra großes Doppelbett",
+    singleBeds: "2 Einzelbetten",
+    sofaBed: "1 Schlafsofa",
+
+    amenitiesLabel: "AUSSTATTUNG",
+    amenitiesTitle: "Alles für einen angenehmen Aufenthalt",
+
+    amBeach: "Direkt am Strand",
+    amSea: "Meerblick",
+    amBalcony: "Balkon",
+    amTerrace: "Terrasse",
+    amWifi: "Schnelles kostenloses WLAN",
+    amAc: "Klimaanlage",
+    amKitchen: "Voll ausgestattete Küche",
+    amDishwasher: "Geschirrspüler",
+    amWasher: "Waschmaschine",
+    amTv: "Flachbild-TV",
+    amBathroom: "Privates Badezimmer",
+    amParking: "Kostenlose öffentliche Parkplätze in der Nähe",
+    amCoffee: "Kaffee / Tee",
+    amHeating: "Heizung",
+    amNonSmoking: "Nichtraucher-Unterkunft",
+    amFamily: "Familienfreundlich",
+
+    beachLabel: "STRAND VON PEREA",
+    beachTitle: "Das Meer direkt vor Ihrer Tür",
+    beachText: "SeaShore B liegt nur wenige Schritte vom Strand von Perea entfernt.",
+
+    bookingLabel: "AUFENTHALT PLANEN",
+    bookingTitle: "SeaShore B anfragen",
+    bookingText: "Wählen Sie Ihre Reisedaten und senden Sie die Anfrage direkt über WhatsApp.",
+
+    checkin: "Anreise",
+    checkout: "Abreise",
+    guests: "Gäste",
+    message: "Nachricht",
+    messagePlaceholder: "Optionale Nachricht...",
+    send: "Anfrage über WhatsApp senden",
+    note: "Dies ist eine Anfrage und keine automatische Bestätigung.",
+
+    locationLabel: "LAGE",
+    locationTitle: "SeaShore Residence · Perea",
+    locationText: "Direkt an der Küste von Perea wohnen.",
+    directions: "Route anzeigen",
+
+    otherLabel: "BRAUCHEN SIE WENIGER PLATZ?",
+    otherTitle: "Entdecken Sie SeaShore A",
+    otherText: "SeaShore A bietet 40 m² für bis zu vier Gäste.",
+    viewA: "SeaShore A ansehen →",
+
+    explorerTitle: "Entdecken Sie mehr während Ihres Aufenthalts",
+    explorerText: "SeaShore Residence ist Teil des Halkidiki Explorer Ökosystems."
+  }
+
+};
+
+
+/* =========================
+   LANGUAGE
+========================= */
+
+const select =
+  document.getElementById("languageSelect");
+
+
+function setLanguage(lang) {
+
+  const data =
+    translations[lang] || translations.en;
+
+  document.documentElement.lang = lang;
+
+
+  document
+    .querySelectorAll("[data-i18n]")
+    .forEach(element => {
+
+      const key =
+        element.dataset.i18n;
+
+      if (data[key]) {
+        element.textContent = data[key];
+      }
+
+    });
+
+
+  document
+    .querySelectorAll("[data-i18n-placeholder]")
+    .forEach(element => {
+
+      const key =
+        element.dataset.i18nPlaceholder;
+
+      if (data[key]) {
+        element.placeholder = data[key];
+      }
+
+    });
+
+
+  localStorage.setItem(
+    "seashoreLanguage",
+    lang
+  );
+
+}
+
+
+select.addEventListener(
+  "change",
+  () => setLanguage(select.value)
+);
+
+
+const savedLanguage =
+  localStorage.getItem("seashoreLanguage")
+  || "en";
+
+
+select.value =
+  savedLanguage;
+
+setLanguage(
+  savedLanguage
+);
+
+
+/* =========================
+   DATE LIMITS
+========================= */
+
+const checkin =
+  document.getElementById("checkin");
+
+const checkout =
+  document.getElementById("checkout");
+
+
+const today =
+  new Date();
+
+const todayString =
+  today.toISOString().split("T")[0];
+
+
+checkin.min =
+  todayString;
+
+checkout.min =
+  todayString;
+
+
+checkin.addEventListener(
+  "change",
+  () => {
+
+    checkout.min =
+      checkin.value;
+
+    if (
+      checkout.value &&
+      checkout.value <= checkin.value
+    ) {
+
+      checkout.value = "";
+
+    }
+
+  }
+);
+
+
+/* =========================
+   WHATSAPP
+========================= */
+
+document
+  .getElementById("whatsappButton")
+  .addEventListener(
+    "click",
+    () => {
+
+      const lang =
+        select.value;
+
+      const arrival =
+        checkin.value;
+
+      const departure =
+        checkout.value;
+
+      const guests =
+        document.getElementById("guests").value;
+
+      const guestMessage =
+        document.getElementById("message")
+        .value
+        .trim();
+
+
+      if (!arrival || !departure) {
+
+        alert(
+          lang === "ro"
+          ? "Selectează data sosirii și data plecării."
+          : "Please select arrival and departure dates."
+        );
+
+        return;
+      }
+
+
+      if (departure <= arrival) {
+
+        alert(
+          lang === "ro"
+          ? "Data plecării trebuie să fie după data sosirii."
+          : "Check-out must be after check-in."
+        );
+
+        return;
+      }
+
+
+      const message =
+`SeaShore Residence - Booking Request
+
+Property: SeaShore B
+Check-in: ${arrival}
+Check-out: ${departure}
+Guests: ${guests}
+
+${guestMessage ? "Message: " + guestMessage : ""}
+
+Website: www.seashoreresidence.com`;
+
+
+      const url =
+        "https://wa.me/306974641433?text="
+        + encodeURIComponent(message);
+
+
+      window.open(
+        url,
+        "_blank"
+      );
+
+    }
+  );
+
+
+/* =========================
+   GALLERY
+========================= */
+
+const galleryImages = [
+
+  "images/seashore-b/b12.webp",
+  "images/seashore-b/b0.webp",
+  "images/seashore-b/b14.webp",
+  "images/seashore-b/b6.webp",
+  "images/seashore-b/b3.webp",
+  "images/seashore-b/b1.webp",
+  "images/seashore-b/b2.webp",
+  "images/seashore-b/b5.webp",
+  "images/seashore-b/b7.webp",
+  "images/seashore-b/b8.webp",
+  "images/seashore-b/b9.webp",
+  "images/seashore-b/b10.webp",
+  "images/seashore-b/b11.webp",
+  "images/seashore-b/b13.webp"
+
+];
+
+
+const lightbox =
+  document.getElementById("lightbox");
+
+const lightboxImage =
+  document.getElementById("lightboxImage");
+
+
+let currentImage = 0;
+
+
+function showImage(index) {
+
+  currentImage =
+    (
+      index +
+      galleryImages.length
+    )
+    %
+    galleryImages.length;
+
+
+  lightboxImage.src =
+    galleryImages[currentImage];
+
+}
+
+
+document
+  .querySelectorAll(".gallery-item")
+  .forEach(
+    item => {
+
+      item.addEventListener(
+        "click",
+        () => {
+
+          currentImage =
+            Number(
+              item.dataset.galleryIndex
+            );
+
+          showImage(
+            currentImage
+          );
+
+          lightbox
+            .classList
+            .add("open");
+
+        }
+      );
+
+    }
+  );
+
+
+document
+  .getElementById("lightboxClose")
+  .addEventListener(
+    "click",
+    () =>
+      lightbox.classList.remove("open")
+  );
+
+
+document
+  .getElementById("lightboxPrev")
+  .addEventListener(
+    "click",
+    () =>
+      showImage(currentImage - 1)
+  );
+
+
+document
+  .getElementById("lightboxNext")
+  .addEventListener(
+    "click",
+    () =>
+      showImage(currentImage + 1)
+  );
+
+
+lightbox.addEventListener(
+  "click",
+  event => {
+
+    if (event.target === lightbox) {
+      lightbox.classList.remove("open");
+    }
+
+  }
+);
+
+
+document.addEventListener(
+  "keydown",
+  event => {
+
+    if (
+      !lightbox.classList.contains("open")
+    ) {
+      return;
+    }
+
+
+    if (event.key === "Escape") {
+      lightbox.classList.remove("open");
+    }
+
+    if (event.key === "ArrowLeft") {
+      showImage(currentImage - 1);
+    }
+
+    if (event.key === "ArrowRight") {
+      showImage(currentImage + 1);
+    }
+
+  }
+);
+
+</script>
+
+
+</body>
+</html>
